@@ -1,0 +1,40 @@
+
+<p>Hello...</p>
+
+<ul *ngFor = "let user of users; let i = index">
+  <li class="text-primary" >{{user}}
+     <button (click)="delete(user,i)" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button> 
+  </li>
+</ul>
+<br>
+
+<div *ngIf="test" class="alert" [ngClass] = "{ 'alert-danger':isError, 'alert-success':!isError }" >alert </div>
+
+<hr>
+
+<h2>personal Info</h2>
+<p>firstName :  {{userJson.firstName}}</p>
+<p>lasttName :  {{userJson.lastName}}</p>
+<h2>adress Info</h2>
+<p>City :  {{userJson.adress.city}}</p>
+<p>zip code :  {{userJson.adress.zip}}</p>
+
+
+<table class="table">
+  <thead>
+    <th>#</th>
+    <th>firstName</th>
+    <th>lastName</th>
+    <th>City</th>
+    <th>zip code</th>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let user of usersTab, let i = index">
+      <td>{{i+1}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.adress.city}}</td>
+      <td>{{user.adress.zip}}</td>
+    </tr>
+  </tbody>
+</table>
