@@ -3,6 +3,106 @@
     <!--header-->
     <app-header></app-header>
 
+    <div class="site-section bg-image2 overlay" id="contact-section" style="background-image: url('assets/images/hero_1.jpg');">
+        <div class="container">
+          
+          <div class="row justify-content-center">
+            <div class="col-lg-7 mb-5">
+  
+              
+  
+              <form [formGroup]="formRegister" (ngSubmit)="register()" class="p-5 bg-white my-5">
+                
+                <h2 class="h4 text-black mb-5">Registre Form</h2> 
+  
+                <div class="row form-group">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <label class="text-black" for="fname">First Name</label>
+                    <input formControlName="firstname" type="text" id="fname" class="form-control rounded-0">
+
+                    <div *ngIf="myFirstName.touched && myFirstName.invalid" class="text-danger text-sm">
+                      <div *ngIf="myFirstName.errors.pattern">invalid</div>
+                      <div *ngIf="myFirstName.errors.required">required</div>
+                      <div *ngIf="myFirstName.errors.minlength">must contains at least 2 character</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="text-black" for="lname">Last Name</label>
+                    <input formControlName="lastname" type="text" id="lname" class="form-control rounded-0">
+
+                    <div *ngIf="myLastName.touched && myLastName.invalid" class="text-danger text-sm">
+                      <div *ngIf="myLastName.errors.pattern">invalid</div>
+                      <div *ngIf="myLastName.errors.required">required</div>
+                      <div *ngIf="myLastName.errors.minlength">must contains at least 2 character</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row form-group">
+                  
+                  <div class="col-md-12">
+                    <label class="text-black" for="email">Email</label> 
+                    <input formControlName="email" type="email" id="email" class="form-control rounded-0">
+
+                    <div *ngIf="myEmail.touched && myEmail.invalid" class="text-danger text-sm">
+                      <div *ngIf="myEmail.errors.email">invalid</div>
+                      <div *ngIf="myEmail.errors.required">required</div>
+                      <div *ngIf="myEmail.errors.minlength">must contains at least 2 character</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row form-group">
+                  
+                  <div class="col-md-12">
+                    <label class="text-black" for="phone">Phone</label> 
+                    <input formControlName="phone" type="text" id="phone" class="form-control rounded-0">
+
+                    <div *ngIf="myPhone.touched && myPhone.invalid" class="text-danger text-sm">
+                      <div *ngIf="myPhone.errors.pattern">invalid</div>
+                      <div *ngIf="myPhone.errors.required">required</div>
+                      <div *ngIf="myPhone.errors.minlength || myPhone.errors.maxlength">must contains 8 number</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row form-group">
+                  <div class="col-md-6">
+                    <label class="text-black" for="password">Password</label> 
+                    <input formControlName="password" type="password" id="password" class="form-control rounded-0">
+
+                    <div *ngIf="myPassword.touched && myPassword.invalid" class="text-danger text-sm">
+                      <div *ngIf="myPassword.errors.required">required</div>
+                      <div *ngIf="myPassword.errors.minlength">must contains at least 8 character</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="text-black" for="Confirmpassword">Confirm Password</label> 
+                    <input formControlName="confirmPassword" type="password" id="ConfirmPassword" class="form-control rounded-0">
+
+                    <div *ngIf="myPassword2.touched && myPassword2.invalid" class="text-danger text-sm">
+                      <div *ngIf="myPassword2.errors.required">required</div>
+                      <div *ngIf="myPassword2.errors.minlength">must contains at least 8 character</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <input type="submit" value="Registre" class="btn btn-primary mr-2 mb-2">
+                  </div>
+                </div>
+  
+    
+              </form>
+            </div>
+          
+          </div>
+          
+        </div>
+      </div>
+
     <!--footer-->
     <app-footer></app-footer>
 </div> <!-- .site-wrap -->
