@@ -13,7 +13,7 @@ export class AddMonitorComponent implements OnInit {
 
   public formRegister : FormGroup;
 
-  constructor(private fb : FormBuilder, private userService: MonitorService, private router: Router) { 
+  constructor(private fb : FormBuilder, private monitorService: MonitorService, private router: Router) { 
 
     let registerControls = {
 
@@ -67,7 +67,7 @@ export class AddMonitorComponent implements OnInit {
 
     let user = new User(null,data.firstname,data.lastname,data.phone,data.email,data.password);
 
-    this.userService.registermonitor(user).subscribe(
+    this.monitorService.registermonitor(user).subscribe(
       res =>{
         this.router.navigateByUrl('/monitors')
       },

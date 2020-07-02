@@ -8,7 +8,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class ListVehiculeComponent implements OnInit {
 
-  constructor(private userService : CarService) { }
+  constructor(private carService : CarService) { }
 
   cars = [];
 
@@ -18,7 +18,7 @@ export class ListVehiculeComponent implements OnInit {
 
 
   getAllCar(){
-    this.userService.allCar().subscribe(
+    this.carService.allCar().subscribe(
       res =>{
         this.cars = res;
         console.log(res);
@@ -31,7 +31,7 @@ export class ListVehiculeComponent implements OnInit {
   deleteCar(car,index){
     this.cars.splice(index,1);
 
-    this.userService.deleteCar(car._id).subscribe(
+    this.carService.deleteCar(car._id).subscribe(
       res =>{
         console.log("car deleted")
       },

@@ -14,7 +14,7 @@ export class UpdateCarComponent implements OnInit {
 
   public formAddCar : FormGroup;
 
-  constructor(private fb : FormBuilder, private userService: CarService, private router: Router, private activedRouter : ActivatedRoute) { 
+  constructor(private fb : FormBuilder, private carService: CarService, private router: Router, private activedRouter : ActivatedRoute) { 
 
     let addCarControls = {
 
@@ -36,7 +36,7 @@ export class UpdateCarComponent implements OnInit {
   ngOnInit(): void {
 
     let carId = this.activedRouter.snapshot.params.id;
-    this.userService.getOneCar(carId).subscribe(
+    this.carService.getOneCar(carId).subscribe(
       res =>{
         let car = res;
 
@@ -64,7 +64,7 @@ export class UpdateCarComponent implements OnInit {
     let car = new Car(null,data.matricule,data.marque,data.color);
 
 
-    this.userService.updateCar(carId,car).subscribe(
+    this.carService.updateCar(carId,car).subscribe(
       res =>{
         console.log("car updated");
         console.log(res);

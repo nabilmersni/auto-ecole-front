@@ -15,7 +15,7 @@ export class UpdateMonitorComponent implements OnInit {
   
 
 
-  constructor(private fb : FormBuilder, private userService: MonitorService, private router: Router,private activeroute: ActivatedRoute) { 
+  constructor(private fb : FormBuilder, private monitorService: MonitorService, private router: Router,private activeroute: ActivatedRoute) { 
 
     let registerControls = {
 
@@ -58,7 +58,7 @@ export class UpdateMonitorComponent implements OnInit {
   ngOnInit(): void {
 
     let userId = this.activeroute.snapshot.params.id;
-    this.userService.getOnemonitor(userId).subscribe(
+    this.monitorService.getOnemonitor(userId).subscribe(
       res =>{
         let user = res;
 
@@ -91,7 +91,7 @@ export class UpdateMonitorComponent implements OnInit {
     let data = this.formRegister.value;
     let user = new User(null,data.firstname,data.lastname,data.phone,data.email,null);
 
-    this.userService.updateInfomonitor(userId,user).subscribe(
+    this.monitorService.updateInfomonitor(userId,user).subscribe(
       res =>{
         console.log("monitor Info updated");
         console.log(res);

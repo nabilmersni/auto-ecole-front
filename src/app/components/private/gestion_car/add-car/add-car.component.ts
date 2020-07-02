@@ -14,7 +14,7 @@ export class AddCarComponent implements OnInit {
 
   public formAddCar : FormGroup;
 
-  constructor(private fb : FormBuilder, private userService: CarService, private router: Router) { 
+  constructor(private fb : FormBuilder, private carService: CarService, private router: Router) { 
 
     let addCarControls = {
 
@@ -46,7 +46,7 @@ export class AddCarComponent implements OnInit {
 
     let car = new Car(null,data.matricule,data.marque,data.color);
 
-    this.userService.addCar(car).subscribe(
+    this.carService.addCar(car).subscribe(
       res =>{
         this.router.navigateByUrl('/cars')
       },

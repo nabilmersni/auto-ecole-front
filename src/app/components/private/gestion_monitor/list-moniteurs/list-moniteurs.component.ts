@@ -8,7 +8,7 @@ import { MonitorService } from 'src/app/services/monitor.service';
 })
 export class ListMoniteursComponent implements OnInit {
 
-  constructor(private userService : MonitorService) { }
+  constructor(private monitorService : MonitorService) { }
 
   users = [];
 
@@ -21,7 +21,7 @@ export class ListMoniteursComponent implements OnInit {
   }//nginit
 
   getAll(){
-    this.userService.allmonitors().subscribe(
+    this.monitorService.allmonitors().subscribe(
       res =>{
         this.users = res;
         console.log(res);
@@ -31,7 +31,7 @@ export class ListMoniteursComponent implements OnInit {
   }
 
   updateTest(user){
-    this.userService.update_state_monitor(user._id).subscribe(
+    this.monitorService.update_state_monitor(user._id).subscribe(
       res =>{
         console.log("user updated");
         this.getAll();
@@ -47,7 +47,7 @@ export class ListMoniteursComponent implements OnInit {
 
     this.users.splice(index,1);
 
-    this.userService.deletemonitor(user._id).subscribe(
+    this.monitorService.deletemonitor(user._id).subscribe(
       res =>{
         console.log("deleted")
       },
