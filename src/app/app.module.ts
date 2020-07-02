@@ -26,6 +26,7 @@ import { AddCarComponent } from './components/private/gestion_car/add-car/add-ca
 import { UpdateCarComponent } from './components/private/gestion_car/update-car/update-car.component';
 import { AddMonitorComponent } from './components/private/gestion_monitor/add-monitor/add-monitor.component';
 import { UpdateMonitorComponent } from './components/private/gestion_monitor/update-monitor/update-monitor.component';
+import { TopbarComponent } from './components/private/topbar/topbar.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { UpdateMonitorComponent } from './components/private/gestion_monitor/upd
     UpdateCarComponent,
     AddMonitorComponent,
     UpdateMonitorComponent,
+    TopbarComponent,
 
   ],
   imports: [
