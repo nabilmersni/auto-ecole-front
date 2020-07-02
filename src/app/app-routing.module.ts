@@ -17,95 +17,108 @@ import { AddCarComponent } from './components/private/gestion_car/add-car/add-ca
 import { UpdateCarComponent } from './components/private/gestion_car/update-car/update-car.component';
 import { AddMonitorComponent } from './components/private/gestion_monitor/add-monitor/add-monitor.component';
 import { UpdateMonitorComponent } from './components/private/gestion_monitor/update-monitor/update-monitor.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
 const routes: Routes = [
   {
-    path : "",
-    component : HomeComponent
+    path: "",
+    component: HomeComponent
   },
 
   {
-    path : "login",
-    component : LoginComponent
+    path: "login",
+    component: LoginComponent
   },
 
   {
-    path : "regiter",
-    component : RegisterComponent
+    path: "regiter",
+    component: RegisterComponent
   },
 
   {
-    path : "dashboard",
-    component : DashboardComponent
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
 
   {
     path: "meet-user",
-    component: ListMeetingUserComponent
+    component: ListMeetingUserComponent,
+    canActivate: [AuthGuard]
   },
 
   {
     path: "meet-moniteur",
-    component: ListMeetingMoniteurComponent
+    component: ListMeetingMoniteurComponent,
+    canActivate: [AuthGuard]
   },
 
   {
     path: "users",
-    component: ListUsersComponent
+    component: ListUsersComponent,
+    canActivate: [AuthGuard]
   },
 
   {
     path: "cars",
-    component: ListVehiculeComponent
+    component: ListVehiculeComponent,
+    canActivate: [AuthGuard]
   },
 
   {
     path: "monitors",
-    component: ListMoniteursComponent
-  }, 
+    component: ListMoniteursComponent,
+    canActivate: [AuthGuard]
+  },
 
   {
     path: "add_user",
-    component: AddUserComponent
-  }, 
+    component: AddUserComponent,
+    canActivate : [AuthGuard]
+  },
 
   {
     path: "update_user/:id",
-    component: UpdateUserComponent
-  }, 
+    component: UpdateUserComponent,
+    canActivate : [AuthGuard]
+  },
 
   {
     path: "add_car",
-    component: AddCarComponent
-  }, 
+    component: AddCarComponent,
+    canActivate : [AuthGuard]
+  },
 
   {
     path: "update_car/:id",
-    component: UpdateCarComponent
-  }, 
+    component: UpdateCarComponent,
+    canActivate : [AuthGuard]
+  },
 
   {
     path: "add_monitor",
-    component: AddMonitorComponent
-  }, 
+    component: AddMonitorComponent,
+    canActivate : [AuthGuard]
+  },
 
   {
     path: "update_monitor/:id",
-    component: UpdateMonitorComponent
-  }, 
+    component: UpdateMonitorComponent,
+    canActivate : [AuthGuard]
+  },
 
 
 
   {
-    path : "test",
+    path: "test",
     component: TestComponent
   },
 
   {
-    path : "**",
-    component : Page404Component
+    path: "**",
+    component: Page404Component
   }
 ];
 

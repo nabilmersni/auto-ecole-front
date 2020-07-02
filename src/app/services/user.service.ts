@@ -32,43 +32,6 @@ export class UserService {
   //getOneUser
   private _getOneUserUrl = this._baselocalUrl + "/user/one/";
 
-//car api---------------------------------------------------------------
-
-   //Api router
-   private _allCarUserUrl = this._baselocalUrl + "/car/all/";
-
-   private _addCarUrl = this._baselocalUrl + "/car/add";
-
-   private _deleteCarUrl = this._baselocalUrl + "/car/delete/";
-
-   private _getOneCar = this._baselocalUrl + "/car/one/";
-
-   private _updateCar = this._baselocalUrl + "/car/update/";
-
-
-  //monitor api---------------------------------------------------------------
-
-    //Api router
-    private _getAllMonitor = this._baseUrl + "/Monitor";
-    //Api router
-    private _monitorRegisterUrl = this._baselocalUrl + "/monitor/register";
-    //Api router
-    private _monitorLoginUrl = this._baselocalUrl + "/monitor/login";
-    //Api router
-    private _allmonitorUrl = this._baselocalUrl + "/monitor/all";
-    //Api router
-    private _updatemonitor_stateUrl = this._baselocalUrl + "/monitor/update-state/";
-  
-      //Api router
-      private _updatemonitorInfoUrl = this._baselocalUrl + "/monitor/update/";
-    //Api router
-    private _deletemonitorUrl = this._baselocalUrl + "/monitor/delete/";
-    //getOnemonitor
-    private _getOnemonitorUrl = this._baselocalUrl + "/monitor/one/";
-
-
-
-
   constructor(private http:HttpClient) { }
 
   getAllUsers(){
@@ -134,6 +97,17 @@ export class UserService {
     }
   }
 
+
+  isLoggedIn(){
+    let token = localStorage.getItem("token")
+    if(token){
+        return true
+    }else{
+      return false
+    }
+  };
+
+
 //user---------------------------------------------------------------------------
   allUsers(){
     let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
@@ -160,68 +134,6 @@ export class UserService {
     let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
     return this.http.delete<any>(this._deleteUserUrl+id,{headers: headers_options});
   }
-
-//car---------------------------------------------------------------------------
-
-  allCar(){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.get<any>(this._allCarUserUrl,{headers: headers_options});
-  }
-
-  addCar(car){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.post<any>(this._addCarUrl,car,{headers: headers_options});
-  }
-
-  deleteCar(id){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.delete<any>(this._deleteCarUrl+id,{headers: headers_options});
-  }
-
-  getOneCar(id){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.get<any>(this._getOneCar+id,{headers: headers_options});
-  }
-  
-  updateCar(id,car){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.patch<any>(this._updateCar+id,car,{headers: headers_options});
-  }
-
-
-  //monitor----------------------------------------------------------
-
-  registermonitor(user:User){
-    return this.http.post<any>(this._monitorRegisterUrl,user);
-  }
-
-  allmonitors(){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.get<any>(this._allmonitorUrl,{headers: headers_options});
-  }
-
-  getOnemonitor(id){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.get<any>(this._getOnemonitorUrl+id,{headers: headers_options});
-  }
-  
-
-  update_state_monitor(id: String){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.patch<any>(this._updatemonitor_stateUrl+id,null,{headers: headers_options});
-  }
-
-  updateInfomonitor(id,monitor){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.patch<any>(this._updatemonitorInfoUrl+id,monitor,{headers: headers_options});
-  }
-
-  deletemonitor(id){
-    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
-    return this.http.delete<any>(this._deletemonitorUrl+id,{headers: headers_options});
-  }
-
-
 
 
 }

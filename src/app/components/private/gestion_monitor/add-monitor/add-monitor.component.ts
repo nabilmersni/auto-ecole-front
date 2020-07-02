@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/services/user.service';
+import { MonitorService } from 'src/app/services/monitor.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class AddMonitorComponent implements OnInit {
 
   public formRegister : FormGroup;
 
-  constructor(private fb : FormBuilder, private userService: UserService, private router: Router) { 
+  constructor(private fb : FormBuilder, private userService: MonitorService, private router: Router) { 
 
     let registerControls = {
 

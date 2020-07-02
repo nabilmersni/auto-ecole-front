@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
+import { CarService } from 'src/app/services/car.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 
@@ -14,7 +14,7 @@ export class UpdateCarComponent implements OnInit {
 
   public formAddCar : FormGroup;
 
-  constructor(private fb : FormBuilder, private userService: UserService, private router: Router, private activedRouter : ActivatedRoute) { 
+  constructor(private fb : FormBuilder, private userService: CarService, private router: Router, private activedRouter : ActivatedRoute) { 
 
     let addCarControls = {
 

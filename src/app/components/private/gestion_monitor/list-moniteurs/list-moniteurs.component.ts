@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { MonitorService } from 'src/app/services/monitor.service';
 
 @Component({
   selector: 'app-list-moniteurs',
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListMoniteursComponent implements OnInit {
 
-  constructor(private userService : UserService) { }
+  constructor(private userService : MonitorService) { }
 
   users = [];
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-list-vehicule',
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListVehiculeComponent implements OnInit {
 
-  constructor(private userService : UserService) { }
+  constructor(private userService : CarService) { }
 
   cars = [];
 
