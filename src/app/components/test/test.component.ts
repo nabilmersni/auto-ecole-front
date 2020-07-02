@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-test',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+  
 
-  constructor() { }
+  constructor(private _userServices : UserService) { }
+
+  userFromApi = [];
 
   ngOnInit(): void {
+    this.getAllUserFromApi();
+  }
+
+  getAllUserFromApi(){
+    this._userServices.getAllUsers().subscribe(
+      //first :Succes
+      res=> this.userFromApi = res,
+
+      err=> console.log(err)
+
+    )
   }
   
   title = 'first-app';

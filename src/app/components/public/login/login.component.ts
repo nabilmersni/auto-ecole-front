@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{FormGroup, FormControl,FormBuilder,Validators} from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   public formLogin : FormGroup;
 
-  constructor(private fb :FormBuilder) { 
+  constructor(private fb :FormBuilder, private userService: UserService,private router:Router) { 
 
     let logControls = {
 
@@ -37,7 +40,21 @@ export class LoginComponent implements OnInit {
   get logpassword(){return this.formLogin.get('password');};
 
   logIn(){
-    console.log(this.formLogin.value);
+    let data = this.formLogin.value;
+
+    let user = new User(null,null,null,null,data.email,data.password);
+
+    this.userService.loginUser(user).subscribe(
+      res =>{
+        let token = res.token;
+        localStorage.setItem("token",token)
+        this.router.navigateByUrl('/dashboard')
+      },
+      err =>{
+        console.log(err);
+      }
+    )
+
   }
 
 }

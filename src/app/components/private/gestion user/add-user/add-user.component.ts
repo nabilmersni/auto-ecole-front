@@ -4,12 +4,14 @@ import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.scss']
 })
-export class RegisterComponent implements OnInit {
+
+export class AddUserComponent implements OnInit {
 
   public formRegister : FormGroup;
 
@@ -50,7 +52,6 @@ export class RegisterComponent implements OnInit {
     }
 
     this.formRegister = fb.group(registerControls)
-
   }
 
   ngOnInit(): void {
@@ -70,7 +71,7 @@ export class RegisterComponent implements OnInit {
 
     this.userService.registerUser(user).subscribe(
       res =>{
-        this.router.navigateByUrl('/login')
+        this.router.navigateByUrl('/users')
       },
       err =>{
         console.log(err);
@@ -78,7 +79,5 @@ export class RegisterComponent implements OnInit {
     )
 
   }
-
-  
 
 }

@@ -11,7 +11,7 @@
   
               
   
-              <form [formGroup]="formRegister" (ngSubmit)="register()" class="p-5 bg-white my-5">
+              <form [formGroup]="formRegister" (ngSubmit)="registerUser()" class="p-5 bg-white my-5">
                 
                 <h2 class="h4 text-black mb-5">Registre Form</h2> 
   
@@ -83,14 +83,14 @@
 
                     <div *ngIf="myPassword2.touched && myPassword2.invalid" class="text-danger text-sm">
                       <div *ngIf="myPassword2.errors.required">required</div>
-                      <div *ngIf="myPassword2.errors.minlength">must contains at least 8 character</div>
                     </div>
+                    <div *ngIf="myPassword2.touched && (myPassword2.value != myPassword.value) " class="text-danger text-sm">password do not match</div>
                   </div>
                 </div>
   
                 <div class="row form-group">
                   <div class="col-md-12">
-                    <input type="submit" value="Registre" class="btn btn-primary mr-2 mb-2">
+                    <input type="submit" value="Registre" [disabled]="formRegister.invalid || (myPassword2.value != myPassword.value)" class="btn btn-primary mr-2 mb-2">
                   </div>
                 </div>
   
