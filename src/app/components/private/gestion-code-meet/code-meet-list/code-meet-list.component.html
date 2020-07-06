@@ -1,0 +1,96 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End of Sidebar -->
+  
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+  
+      <!-- Main Content -->
+      <div id="content">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+  
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">code meet list</h1>
+
+          </div>
+  
+          <!-- Content Row -->
+  
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">code meet list</h6>
+  
+                  <button class="btn btn-primary" routerLink='/add-code-meet'>add code meet</button>
+  
+  
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>date</th>
+                          <th>time</th>
+                          <th>user_id</th>
+                          <th>#</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let codeMeet of codeMeets, let i = index">
+                          <td>#</td>
+                          <td>{{codeMeet.date}}</td>
+                          <td>{{codeMeet.time}}</td>
+                          <td>{{codeMeet.user_id}}</td>
+  
+                          <td>
+                            <button class="btn btn-danger btn-sm ml-3" (click)="deleteCodeMeet(codeMeet,i)"><i
+                                class="far fa-trash-alt"></i></button>
+                            <button class="btn btn-warning btn-sm ml-3" [routerLink]="['/update-code-meet',codeMeet._id,codeMeet.user_id]">
+                              <i class="fas fa-edit"></i></button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <!-- /.container-fluid -->
+  
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->

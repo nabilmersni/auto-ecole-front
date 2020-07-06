@@ -14,8 +14,9 @@ export class UserService {
 
   private _baselocalUrl = "http://localhost:3000";
 
-  //Api router
-  private _getAllUsers = this._baseUrl + "/users";
+
+    //Api router
+    private _getActiveUsers = this._baselocalUrl + "/user/active";
   //Api router
   private _userRegisterUrl = this._baselocalUrl + "/user/register";
   //Api router
@@ -33,12 +34,6 @@ export class UserService {
   private _getOneUserUrl = this._baselocalUrl + "/user/one/";
 
   constructor(private http:HttpClient) { }
-
-  getAllUsers(){
-    return this.http.get<any>(this._getAllUsers);
-  }
-
-
 
 
 
@@ -100,8 +95,21 @@ export class UserService {
 
   isLoggedIn(){
     let token = localStorage.getItem("token")
+    let etat =  new JwtHelperService().decodeToken(token).etat;
     if(token){
         return true
+    }else{
+      return false
+    }
+  };
+
+  isLoggedInAndActive(){
+    let token = localStorage.getItem("token")
+    let etat =  new JwtHelperService().decodeToken(token).etat;
+    if(token){
+      if(etat == true){
+        return true
+      }
     }else{
       return false
     }
@@ -112,6 +120,11 @@ export class UserService {
   allUsers(){
     let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
     return this.http.get<any>(this._allUserUrl,{headers: headers_options});
+  }
+
+  activeUsers(){
+    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
+    return this.http.get<any>(this._getActiveUsers,{headers: headers_options});
   }
 
   getOneUser(id){

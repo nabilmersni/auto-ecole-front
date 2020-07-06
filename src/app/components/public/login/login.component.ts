@@ -51,7 +51,11 @@ export class LoginComponent implements OnInit {
       res =>{
         let token = res.token;
         localStorage.setItem("token",token)
-        this.router.navigateByUrl('/dashboard')
+        if(this.userService.isLoggedInAndActive()){
+          this.router.navigateByUrl('/dashboard')
+        }else{
+          this.router.navigateByUrl('/accountdesactiver')
+        }
       },
       err =>{
         console.log(err);

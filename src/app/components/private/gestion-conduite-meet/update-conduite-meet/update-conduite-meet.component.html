@@ -1,0 +1,154 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End of Sidebar -->
+  
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+  
+      <!-- Main Content -->
+      <div id="content">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+  
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Update Conduite Meet</h1>
+            <a routerLink="/conduite-meet-list" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Back</a>
+          </div>
+  
+          <!-- Content Row -->
+  
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <form [formGroup]="formAddCodeMeet" (ngSubmit)="UpdateConduiteMeet()" class="p-5 bg-white ">
+                  <div class="row form-group">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                      <label class="text-black" for="date">Date</label>
+                      <input formControlName="date" type="date" id="date" class="form-control rounded-0">
+  
+                      <div *ngIf="mydate.touched && mydate.invalid" class="text-danger text-sm">
+                        <div *ngIf="mydate.errors.required">required</div>
+  
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="lname">Time</label>
+                      <input formControlName="time" type="time" id="lname" class="form-control rounded-0">
+  
+                      <div *ngIf="mytime.touched && mytime.invalid" class="text-danger text-sm">
+                        <div *ngIf="mytime.errors.required">required</div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row form-group">
+  
+                    <div class="col-md-6">
+
+
+                      <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="user_id">Users</label>
+                        </div>
+                        <select [(ngModel)]='userSelect' formControlName="user_id" class="custom-select" id="user_id">
+                            <option value="">Choose a user...</option>
+                            <option *ngFor="let user of users" value="{{user._id}}">{{user.firstname +"  " + user.lastname}}</option>
+                        </select>
+                      </div>
+  
+                      <div *ngIf="myuser_id.touched && myuser_id.invalid" class="text-danger text-sm">
+                        <div *ngIf="myuser_id.errors.required">required</div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="monitor_id">Monitors</label>
+                            </div>
+                            <select [(ngModel)]='monitorSelect' formControlName="monitor_id" class="custom-select" id="monitor_id">
+                                <option value="">Choose a monitor...</option>
+                                <option *ngFor="let monitor of monitors" value="{{monitor._id}}">{{monitor.firstname +"  " + monitor.lastname}}</option>
+                            </select>
+                          </div>
+    
+                        <div *ngIf="mymonitor_id.touched && mymonitor_id.invalid" class="text-danger text-sm">
+                          <div *ngIf="mymonitor_id.errors.required">required</div>
+                        </div>
+                      </div>
+
+                  </div>
+
+                  <div class="row form-group">
+  
+                    <div class="col-md-6">
+
+                      <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="car">Cars</label>
+                        </div>
+                        <select [(ngModel)]='carSelect' formControlName="car" class="custom-select" id="car">
+                            <option value="">Choose a car...</option>
+                            <option *ngFor="let car of cars" value="{{car._id}}">{{car.marque}}</option>
+                        </select>
+                      </div>
+  
+                      <div *ngIf="mycar.touched && mycar.invalid" class="text-danger text-sm">
+                        <div *ngIf="mycar.errors.required">required</div>
+                      </div>
+                    </div>
+
+                  </div>
+  
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <input type="submit" value="Update Conduite meet" [disabled]="formAddCodeMeet.invalid"
+                        class="btn btn-primary mr-2 mb-2">
+                    </div>
+                  </div>
+  
+  
+                </form>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <!-- /.container-fluid -->
+  
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->

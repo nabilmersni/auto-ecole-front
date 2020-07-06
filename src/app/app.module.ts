@@ -16,8 +16,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { DashboardComponent } from './components/private/dashboard/dashboard.component';
 import { SidebarComponent } from './components/private/sidebar/sidebar.component';
 import { ListUsersComponent } from './components/private/gestion user/list-users/list-users.component';
-import { ListMeetingUserComponent } from './components/private/list-meeting-user/list-meeting-user.component';
-import { ListMeetingMoniteurComponent } from './components/private/list-meeting-moniteur/list-meeting-moniteur.component';
 import { ListVehiculeComponent } from './components/private/gestion_car/list-vehicule/list-vehicule.component';
 import { ListMoniteursComponent } from './components/private/gestion_monitor/list-moniteurs/list-moniteurs.component';
 import { AddUserComponent } from './components/private/gestion user/add-user/add-user.component';
@@ -27,6 +25,16 @@ import { UpdateCarComponent } from './components/private/gestion_car/update-car/
 import { AddMonitorComponent } from './components/private/gestion_monitor/add-monitor/add-monitor.component';
 import { UpdateMonitorComponent } from './components/private/gestion_monitor/update-monitor/update-monitor.component';
 import { TopbarComponent } from './components/private/topbar/topbar.component';
+import { CodeMeetListComponent } from './components/private/gestion-code-meet/code-meet-list/code-meet-list.component';
+import { AddCodeMeetComponent } from './components/private/gestion-code-meet/add-code-meet/add-code-meet.component';
+import { UpdateCodeMeetComponent } from './components/private/gestion-code-meet/update-code-meet/update-code-meet.component';
+import { ConduiteMeetListComponent } from './components/private/gestion-conduite-meet/conduite-meet-list/conduite-meet-list.component';
+import { AddConduiteMeetComponent } from './components/private/gestion-conduite-meet/add-conduite-meet/add-conduite-meet.component';
+import { UpdateConduiteMeetComponent } from './components/private/gestion-conduite-meet/update-conduite-meet/update-conduite-meet.component';
+import { UserCodeMeetComponent } from './components/private/gestion user/user-code-meet/user-code-meet.component';
+import { UserConduiteMeetComponent } from './components/private/gestion user/user-conduite-meet/user-conduite-meet.component';
+import { MonitorConduiteMeetComponent } from './components/private/gestion_monitor/monitor-conduite-meet/monitor-conduite-meet.component';
+import { AccountNotActiveComponent } from './components/account-not-active/account-not-active.component';
 
 
 @NgModule({
@@ -43,8 +51,6 @@ import { TopbarComponent } from './components/private/topbar/topbar.component';
     DashboardComponent,
     SidebarComponent,
     ListUsersComponent,
-    ListMeetingUserComponent,
-    ListMeetingMoniteurComponent,
     ListVehiculeComponent,
     ListMoniteursComponent,
     AddUserComponent,
@@ -54,6 +60,16 @@ import { TopbarComponent } from './components/private/topbar/topbar.component';
     AddMonitorComponent,
     UpdateMonitorComponent,
     TopbarComponent,
+    CodeMeetListComponent,
+    AddCodeMeetComponent,
+    UpdateCodeMeetComponent,
+    ConduiteMeetListComponent,
+    AddConduiteMeetComponent,
+    UpdateConduiteMeetComponent,
+    UserCodeMeetComponent,
+    UserConduiteMeetComponent,
+    MonitorConduiteMeetComponent,
+    AccountNotActiveComponent,
 
   ],
   imports: [

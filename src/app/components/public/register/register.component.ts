@@ -54,6 +54,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.userService.isLoggedIn()){
+      this.router.navigateByUrl("/dashboard");
+    }
   }
 
   get myFirstName(){return this.formRegister.get('firstname');};

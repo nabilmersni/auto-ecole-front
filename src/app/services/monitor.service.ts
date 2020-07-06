@@ -16,6 +16,8 @@ export class MonitorService {
   private _monitorLoginUrl = this._baselocalUrl + "/monitor/login";
   //Api router
   private _allmonitorUrl = this._baselocalUrl + "/monitor/all";
+    //Api router
+    private _activemonitorUrl = this._baselocalUrl + "/monitor/active";
   //Api router
   private _updatemonitor_stateUrl = this._baselocalUrl + "/monitor/update-state/";
 
@@ -38,6 +40,11 @@ export class MonitorService {
   allmonitors(){
     let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
     return this.http.get<any>(this._allmonitorUrl,{headers: headers_options});
+  }
+
+  activeMonitors(){
+    let headers_options = new HttpHeaders().set("Authorisation",localStorage.getItem("token"));
+    return this.http.get<any>(this._activemonitorUrl,{headers: headers_options});
   }
 
   getOnemonitor(id){

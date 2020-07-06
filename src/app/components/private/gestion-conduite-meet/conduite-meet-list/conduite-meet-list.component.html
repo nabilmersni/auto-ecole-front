@@ -1,0 +1,100 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <!-- End of Sidebar -->
+  
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+  
+      <!-- Main Content -->
+      <div id="content">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+  
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">conduite meet list</h1>
+
+          </div>
+  
+          <!-- Content Row -->
+  
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">conduite meet list</h6>
+  
+                  <button class="btn btn-primary" routerLink='/add-conduite-meet'>add conduite meet</button>
+  
+  
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Date</th>
+                          <th>Time</th>
+                          <th>User_id</th>
+                          <th>Monotor_id</th>
+                          <th>Car_id</th>
+                          <th>#</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let conduiteMeet of conduiteMeets, let i = index">
+                          <td>#</td>
+                          <td>{{conduiteMeet.date}}</td>
+                          <td>{{conduiteMeet.time}}</td>
+                          <td>{{conduiteMeet.user_id}}</td>
+                          <td>{{conduiteMeet.monitor_id}}</td>
+                          <td>{{conduiteMeet.car_id}}</td>
+  
+                          <td>
+                            <button class="btn btn-danger btn-sm ml-3" (click)="deleteConduiteMeet(conduiteMeet,i)"><i
+                                class="far fa-trash-alt"></i></button>
+                            <button class="btn btn-warning btn-sm ml-3" [routerLink]="['/update-conduite-meet',conduiteMeet._id,conduiteMeet.user_id,conduiteMeet.monitor_id,conduiteMeet.car_id]">
+                              <i class="fas fa-edit"></i></button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <!-- /.container-fluid -->
+  
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->

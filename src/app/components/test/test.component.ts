@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,12 +11,13 @@ export class TestComponent implements OnInit {
   
 
   constructor(private _userServices : UserService) { }
-
+  
+  ngOnInit(): void {
+  }
+/*
   userFromApi = [];
 
-  ngOnInit(): void {
-    this.getAllUserFromApi();
-  }
+
 
   getAllUserFromApi(){
     this._userServices.getAllUsers().subscribe(
@@ -65,5 +67,5 @@ export class TestComponent implements OnInit {
     this.userJson,
     this.userJson
   ];
-
+*/
 }

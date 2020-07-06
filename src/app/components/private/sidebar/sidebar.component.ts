@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-sidebar',
@@ -19,5 +20,7 @@ export class SidebarComponent implements OnInit {
     this.isUser = this.userService.isLoggedUser();
     this.isMonitor = this.userService.isLoggedMonitor();
   }
+
+
 
 }
